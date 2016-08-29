@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	<script src="http://code.jquery.com/jquery-2.0.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form name="MonthlyPayment" id="MonthlyPayment" action="addMonthlyPayment" method="post">
+		<label for="rent">Rent:</label>
+		<input id="rent" name="rent" placeholder="sum" min="0" max="100 000" required="true" type="number"/>
+		<label for="date">Date:</label>
+		<input id="date" name="Date" placeholder="date" required="true" type="datetime"/>
+		<label for="photo">Photo:</label>
+		<input id="photo" name="Photo" placeholder="image" required="true" type="file"/>
+		<label for="t1">T1:</label>
+		<input id="t1" name="T1" placeholder="T1" min="0.0" required="true" type="number"/>
+		<label for="t2">T2:</label>
+		<input id="t2" name="T2" placeholder="T2" min="0.0" type="number"/>
+		<label for="toPay">To pay:</label>
+		<input id="toPay" name="To pay" placeholder="sum" min="0" max="100000" required="true" type="number"/>
+		<input type="submit" value="Save" form="MonthlyPayment" id="SaveMonthlyPayment"/>
+	</form>
+	<form>
+		<input data-type="search" id="searchForTable-1"/>
+	</form>
+	<table data-role="table" id="monthlyPaymentList" data-filter="true" data-input="#searchForTable-1" class="ui-responsive">
+		<thead>
+			<tr>
+				<th>Sum</th>
+				<th data-priority="1">Date</th>
+				<th data-priority="2">Image</th>
+				<th data-priority="3">T1</th>
+				<th data-priority="4">T2</th>
+				<th data-priority="5">Sum to pay</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>a</td>
+				<td>b</td>
+				<td>c</td>
+				<td>d</td>
+				<td>e</td>
+				<td>f</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
