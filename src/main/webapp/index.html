@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form name="MonthlyPayment" id="MonthlyPayment" action="addMonthlyPayment" method="post">
+	<form name="MonthlyPayment" id="MonthlyPayment" enctype="multipart/form-data" action="addMonthlyPayment" method="post">
 		<label for="rent">Rent:</label>
 		<input id="rent" name="rent" placeholder="sum" min="0" max="100 000" required="true" type="number"/>
 		<label for="date">Date:</label>
