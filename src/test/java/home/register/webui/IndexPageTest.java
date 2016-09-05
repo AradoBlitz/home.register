@@ -6,6 +6,7 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.lang.annotation.Annotation;
+import java.util.List;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -59,12 +60,17 @@ public class IndexPageTest {
 		driver.findElement(By.id("t1")).sendKeys("700.005");
 		driver.findElement(By.id("t2")).sendKeys("612.340");
 		driver.findElement(By.id("toPay")).sendKeys("3700");
+		
 		driver.findElement(By.id("SaveMonthlyPayment")).submit();
 		
-		driver.findElement(By.id("monthlyPaymentList"));	
-		assertEquals(driver.getPageSource()
-				,"HTTP method POST is not supported by this URL"
-				,driver.findElement(By.tagName("body")).getText());
+		List<WebElement> row = driver.findElements(By.cssSelector("#monthlyPaymentList tbody tr td"));
+		assertEquals("25000", row.get(0).getText());
+		assertEquals("20-Aug-1985", row.get(1).getText());
+		assertEquals("http://localhost:8080/home.register/#", row.get(2).findElement(By.cssSelector("img")).getAttribute("src"));
+		assertEquals("700.005", row.get(3).getText());
+		assertEquals("612.340", row.get(4).getText());
+		assertEquals("3700", row.get(5).getText());
+		
 	}
 
 }
