@@ -54,7 +54,7 @@ public class AddPaymentRecordTest {
 		MonthlyPayment expected = new MonthlyPayment();
 		expected.rent=25000;
 		expected.date=dateFormatter.parse("20-Aug-1985");
-		expected.image=ImageIO.read(image);
+		expected.imageUri="image/"+ image.hashCode();
 		expected.t1=700.005;
 		expected.t2=612.340;
 		expected.toPay=3700;

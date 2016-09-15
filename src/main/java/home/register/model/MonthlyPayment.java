@@ -7,16 +7,16 @@ public class MonthlyPayment {
 
 	public int rent;
 	public Date date;
-	public BufferedImage image;
 	public double t1;
 	public double t2;
 	public int toPay;
+	public String imageUri;
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((date == null) ? 0 : date.hashCode());
-		result = prime * result + ((image == null) ? 0 : image.hashCode());
+		result = prime * result + ((imageUri == null) ? 0 : imageUri.hashCode());
 		result = prime * result + rent;
 		long temp;
 		temp = Double.doubleToLongBits(t1);
@@ -40,10 +40,10 @@ public class MonthlyPayment {
 				return false;
 		} else if (!date.equals(other.date))
 			return false;
-		if (image == null) {
-			if (other.image != null)
+		if (imageUri == null) {
+			if (other.imageUri != null)
 				return false;
-		} else if (!image.equals(other.image))
+		} else if (!imageUri.equals(other.imageUri))
 			return false;
 		if (rent != other.rent)
 			return false;
@@ -57,8 +57,8 @@ public class MonthlyPayment {
 	}
 	@Override
 	public String toString() {
-		return "MonthlyPayment [rent=" + rent + ", date=" + date + ", image=" + image + ", t1=" + t1 + ", t2=" + t2
-				+ ", toPay=" + toPay + "]";
+		return "MonthlyPayment [rent=" + rent + ", date=" + date + ", t1=" + t1 + ", t2=" + t2 + ", toPay=" + toPay
+				+ ", imageUri=" + imageUri + "]";
 	}
 	
 	
