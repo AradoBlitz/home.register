@@ -6,6 +6,9 @@ import static org.junit.Assert.*;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
+
+import javax.imageio.ImageIO;
 import javax.inject.Inject;
 
 import org.jboss.arquillian.container.test.api.Deployment;
@@ -49,7 +52,12 @@ public class AddPaymentRecordTest {
 				,612.340
 				,3700);
 		MonthlyPayment expected = new MonthlyPayment();
-		
+		expected.rent=25000;
+		expected.date=dateFormatter.parse("20-Aug-1985");
+		expected.image=ImageIO.read(image);
+		expected.t1=700.005;
+		expected.t2=612.340;
+		expected.toPay=3700;
 		assertEquals(asList(expected),monthlyPaymentService.getMonthlyPaymentList());
 		
 	}
