@@ -1,16 +1,16 @@
 package home.register.rest;
 
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
 import javax.imageio.ImageIO;
+import javax.ws.rs.core.Response;
 
 import home.register.model.MonthlyPayment;
 
@@ -37,11 +37,28 @@ public class MonthlyPaymentService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		expected.imageUri="image/"+ image.hashCode(); 
+		expected.imageUri="image/1"; 
 		expected.t1=t1;
 		expected.t2=t2;
 		expected.toPay=toPay;
 		
+	}
+
+	public Response getImage(int hashCode) {
+		
+		try {
+			return Response.ok(toByteArray(image, "png")).build();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return Response.serverError().build();
+		}
+	}
+	
+	private byte[] toByteArray(BufferedImage image, String formatName) throws IOException {
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		ImageIO.write(image, formatName, baos);
+		return baos.toByteArray();
 	}
 
 }
