@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form name="MonthlyPayment" id="MonthlyPayment" enctype="multipart/form-data" action="addMonthlyPayment" method="post">
+	<form name="MonthlyPayment" id="MonthlyPayment" enctype="multipart/form-data" action="service/addMonthlyPayment" method="post">
 		<label for="rent">Rent:</label>
 		<input id="rent" name="rent" placeholder="sum" min="0" max="100 000" required="true" type="number"/>
 		<label for="date">Date:</label>
@@ -22,7 +22,7 @@
 		<input id="t2" name="T2" placeholder="T2" min="0.0" type="number"/>
 		<label for="toPay">To pay:</label>
 		<input id="toPay" name="To pay" placeholder="sum" min="0" max="100000" required="true" type="number"/>
-		<input type="submit" value="Save" form="MonthlyPayment" id="SaveMonthlyPayment"/>
+		<input type="submit" value="Save" form="MonthlyPayment" id="saveMonthlyPayment"/>
 	</form>
 	<form>
 		<input data-type="search" id="searchForTable-1"/>
@@ -49,5 +49,20 @@
 			</tr>
 		</tbody>
 	</table>
+	<script type="text/javascript">
+		var imgElem = document.getElementById('');
+			$('#saveMonthlyPayment').click(function(event){
+				
+				event.preventDefault();
+				var fd = new FormData(document.querySelector("#MonthlyPayment"));				
+				$.ajax({
+				  url: "service/addMonthlyPayment",
+				  type: "POST",
+				  data: fd,
+				  processData: false,  // tell jQuery not to process the data
+				  contentType: false   // tell jQuery not to set contentType
+				});
+				});
+	</script>
 </body>
 </html>
