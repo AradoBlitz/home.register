@@ -1,11 +1,9 @@
 package home.register.model;
 
-import java.util.Date;
-
 public class MonthlyPayment {
 
 	public int rent;
-	public Date date;
+	public String date;
 	public double t1;
 	public double t2;
 	public int toPay;
