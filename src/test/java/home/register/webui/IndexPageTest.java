@@ -61,8 +61,9 @@ public class IndexPageTest {
 		driver.findElement(By.id("t2")).sendKeys("612.340");
 		driver.findElement(By.id("toPay")).sendKeys("3700");
 		
-		driver.findElement(By.id("SaveMonthlyPayment")).submit();
+		driver.findElement(By.id("saveMonthlyPayment")).submit();
 		
+		driver.get("http://localhost:8080/home.register/");
 		List<WebElement> row = driver.findElements(By.cssSelector("#monthlyPaymentList tbody tr td"));
 		assertEquals("25000", row.get(0).getText());
 		assertEquals("20-Aug-1985", row.get(1).getText());
