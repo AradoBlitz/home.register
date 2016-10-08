@@ -39,14 +39,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<td>a</td>
-				<td>b</td>
-				<td>c</td>
-				<td>d</td>
-				<td>e</td>
-				<td>f</td>
-			</tr>
+			
 		</tbody>
 	</table>
 	<script type="text/javascript">
@@ -54,7 +47,8 @@
 			$('#saveMonthlyPayment').click(function(event){
 				
 				event.preventDefault();
-				var fd = new FormData(document.querySelector("#MonthlyPayment"));				
+				console.log(document.querySelector('#MonthlyPayment'));
+				var fd = new FormData(document.querySelector('#MonthlyPayment'));				
 				$.ajax({
 				  url: "service/addMonthlyPayment",
 				  type: "POST",
@@ -63,6 +57,23 @@
 				  contentType: false   // tell jQuery not to set contentType
 				});
 				});
+			$.ajax({
+				url: "service/list",
+				type: "GET",
+				dataType: "json",
+				success: function(data, textStatus){
+					console.log("Actual data");
+					console.log(data);
+					console.log(JSON.stringify(data));
+					$('#monthlyPaymentList tbody').append('<tr><td>' + data[0].rent + '</td>'
+							+'<td>' + data[0].date + '</td>'
+							+'<td>' + data[0].imageUri + '</td>'
+							+'<td>' + data[0].t1 + '</td>'
+							+'<td>' + data[0].t2 + '</td>'
+							+'<td>' + data[0].toPay + '</td></tr>');				
+				}
+			});
+			
 	</script>
 </body>
 </html>
