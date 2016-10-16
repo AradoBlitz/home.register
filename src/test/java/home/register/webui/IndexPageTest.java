@@ -5,9 +5,7 @@ import static org.junit.Assert.*;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.lang.annotation.Annotation;
 import java.util.List;
-
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TestRule;
@@ -18,9 +16,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
+import com.gargoylesoftware.htmlunit.BrowserVersion;
+
 public class IndexPageTest {
 	
-	private WebDriver driver = new HtmlUnitDriver();
+	private WebDriver driver = new HtmlUnitDriver(BrowserVersion.FIREFOX_38,true);
 	
 	
 	@Rule
@@ -67,7 +67,7 @@ public class IndexPageTest {
 		List<WebElement> row = driver.findElements(By.cssSelector("#monthlyPaymentList tbody tr td"));
 		assertEquals("25000", row.get(0).getText());
 		assertEquals("20-Aug-1985", row.get(1).getText());
-		assertEquals("http://localhost:8080/home.register/#", row.get(2).findElement(By.cssSelector("img")).getAttribute("src"));
+		assertEquals("http://localhost:8080/home.register/image/1", row.get(2).findElement(By.cssSelector("img")).getAttribute("src"));
 		assertEquals("700.005", row.get(3).getText());
 		assertEquals("612.340", row.get(4).getText());
 		assertEquals("3700", row.get(5).getText());
