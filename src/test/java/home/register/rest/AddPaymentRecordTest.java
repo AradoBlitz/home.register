@@ -57,7 +57,7 @@ public class AddPaymentRecordTest {
 		MonthlyPayment expected = new MonthlyPayment();
 		expected.rent=25000;
 		expected.date="20-Aug-1985";
-		expected.imageUri="image/1";
+		expected.imageUri="service/image/1";
 		expected.t1=700.005;
 		expected.t2=612.340;
 		expected.toPay=3700;
