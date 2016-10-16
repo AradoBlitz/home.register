@@ -67,7 +67,7 @@
 					console.log(JSON.stringify(data));
 					$('#monthlyPaymentList tbody').append('<tr><td>' + data[0].rent + '</td>'
 							+'<td>' + data[0].date + '</td>'
-							+'<td>' + data[0].imageUri + '</td>'
+							+'<td><img src=\"' + data[0].imageUri + '"/></td>'
 							+'<td>' + data[0].t1 + '</td>'
 							+'<td>' + data[0].t2 + '</td>'
 							+'<td>' + data[0].toPay + '</td></tr>');				
